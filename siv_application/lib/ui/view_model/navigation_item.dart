@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 class NavigationItem {
   final String label;
   final bool completed;

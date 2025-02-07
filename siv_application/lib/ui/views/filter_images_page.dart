@@ -15,27 +15,56 @@ class FilterImagesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Select Images'),
       ),
-      body: Obx(() {
-        final images = imageSelectedController.selectedImages;
-        return GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5,
-            crossAxisSpacing: 4.0,
-            mainAxisSpacing: 4.0,
-          ),
-          itemCount: images.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                imageSelectedController.selectImage(images[index]);
-              },
-              child: Obx(() {
-                return GridTile(child: Image.asset(images[index]));
-              }),
-            );
-          },
-        );
-      }),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Obx(() {
+              final images = imageSelectedController.selectedImages;
+              return GridView.builder(
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0,
+                ),
+                itemCount: images.length,
+                itemBuilder: (context, index) {
+                  return Obx(() {
+                    return GridTile(child: Image.asset(images[index]));
+                  });
+                },
+              );
+            }),
+            const SizedBox(height: 20),
+            const Text(
+              'Select filter to apply',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Filter 1'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Filter 2'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Filter 3'),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         label: const Text('Next'),

@@ -5,12 +5,16 @@ import 'package:siv_application/ui/views/filter_images_page.dart';
 import 'package:siv_application/ui/views/select_images_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() {
+    return HomePageState();
+  }
 }
 
-class _HomePageState extends State<HomePage> {
-  int _currentPage = 0;
+class HomePageState extends State<HomePage> {
+  final int _currentPage = 0;
 
   late PageController _pageController;
 
@@ -46,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                       FirstTaskController().completeTask();
                       _pageController.animateToPage(
                         1,
-                        duration: Duration(milliseconds: 500),
+                        duration: const Duration(milliseconds: 500),
                         curve: Curves.easeInOutCubic,
                       );
                     },
@@ -77,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 onSelectPage: (page) {
                   _pageController.animateToPage(
                     page,
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.easeInOutCubic,
                   );
                 },

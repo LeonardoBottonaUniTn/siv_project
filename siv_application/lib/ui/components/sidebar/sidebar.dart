@@ -5,12 +5,12 @@ import 'package:siv_application/ui/components/sidebar/navigation/navigation_bar.
 import 'package:siv_application/ui/components/sidebar/sidebar_top_area.dart';
 import 'package:siv_application/ui/getX/tasks/fist_task_controller.dart';
 import 'package:siv_application/ui/view_model/navigation_item.dart';
-import "package:flutter_feather_icons/flutter_feather_icons.dart";
 
 class Sidebar extends StatefulWidget {
   final double width;
   final Function(int page) onSelectPage;
 
+  // ignore: use_super_parameters
   const Sidebar({
     key,
     required this.width,
@@ -18,13 +18,13 @@ class Sidebar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SidebarState createState() => _SidebarState();
+  SidebarState createState() => SidebarState();
 }
 
-class _SidebarState extends State<Sidebar> {
+class SidebarState extends State<Sidebar> {
   int _currentIndex = 0;
 
-  FirstTaskController firstTaskController = Get.put(FirstTaskController());
+  final firstTaskController = Get.put(FirstTaskController());
 
   late List<NavigationItem> _navigation;
 
@@ -68,21 +68,30 @@ class _SidebarState extends State<Sidebar> {
           CustomNavBar(
             selectedIndex: _currentIndex,
             children: [
-              for (int i = 0; i < _navigation.length; i++)
-                NavigationBarItem(
-                  isCompleted: _navigation[i].completed,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  label: _navigation[i].label,
-                  onTap: () {
-                    setState(() {
-                      _currentIndex = i;
-                      widget.onSelectPage(i);
-                    });
-                  },
-                ),
+              FirstTaskBarItem(
+                label: _navigation[0].label,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                onTap: () {
+                  setState(() {
+                    _currentIndex = 0;
+                    firstTaskController.completeTask();
+                    widget.onSelectPage(_currentIndex);
+                  });
+                },
+              ),
+              NavigationBarItem(
+                label: _navigation[1].label,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                onTap: () {
+                  setState(() {
+                    _currentIndex = 1;
+                    widget.onSelectPage(_currentIndex);
+                  });
+                },
+                isCompleted: _navigation[1].completed,
+              ),
             ],
           ),
         ],

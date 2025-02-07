@@ -6,14 +6,14 @@ class SidebarTopArea extends StatelessWidget {
   final Function onCollapseChanged;
 
   const SidebarTopArea({
-    key,
+    super.key,
     required this.padding,
     required this.onCollapseChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children: [],
     );
   }
