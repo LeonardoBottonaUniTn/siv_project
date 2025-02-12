@@ -22,6 +22,8 @@ For the best understanding of our workflow, we recommend viewing the notebooks i
 
 ## Installation 
 
+We recommend using Python version 3.12.9.
+
 ```bash
 # Clone the repository
 git clone https://github.com/LeonardoBottonaUniTn/siv_project.git
