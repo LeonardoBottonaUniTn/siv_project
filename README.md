@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Installation](#installation)
+- [Introduction]()
+- [Installation]()
 
 ## Introduction
 
@@ -20,7 +20,7 @@ For the best understanding of our workflow, we recommend viewing the notebooks i
 3. [Machine Learning Analysis](./ml_analysis.ipynb)
 
 
-## Installation
+## Installation {#introduction}
 
 ```bash
 # Clone the repository
