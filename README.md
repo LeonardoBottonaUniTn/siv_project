@@ -20,7 +20,7 @@ For the best understanding of our workflow, we recommend viewing the notebooks i
 3. [Machine Learning Analysis](./ml_analysis.ipynb)
 
 
-## Installation {#introduction}
+## Installation 
 
 ```bash
 # Clone the repository
