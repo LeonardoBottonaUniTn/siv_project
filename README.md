@@ -4,6 +4,7 @@
 
 - [Introduction]()
 - [Installation]()
+- [References]()
 
 ## Introduction
 
@@ -32,3 +33,9 @@ git clone https://github.com/LeonardoBottonaUniTn/siv_project.git
 # Install dependencies
 pip install -r requirements.txt
 ```
+
+## References
+
+- We get some ispiration from this blog: [Bouldering Holds Segmentation](https://blog.tjtl.io/bouldering-and-computer-vision/#bouldering-holds-segmentation).
+      - Especially we used [this paper]()
+- We used Roboflow to train our models.
